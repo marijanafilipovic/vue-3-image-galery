@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import Carousel from "./components/Carousel.vue";
-
+import AddToGallery from "./components/AddToGallery.vue";
+const imageUrl = ref("");
+const imageTitle = ref("");
 const images = ref([
   {
     id: "asd234",
@@ -22,6 +23,9 @@ const images = ref([
 const removeImg = (i) => {
   images.value = images.value.filter((image, index) => index !== i);
 };
+const addToGallery = (slide) => {
+images.value.push(slide);
+}
 </script>
 
 <template>
@@ -37,8 +41,8 @@ const removeImg = (i) => {
     </div>
     <div v-else class="no-images"><h2>No Images</h2></div>
     <hr />
-    <Carousel />
-  </main>
+    <AddToGallery :addToGallery="addToGallery"/>
+   </main>
 </template>
 
 <style scoped>
