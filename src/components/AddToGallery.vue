@@ -20,20 +20,28 @@ const handleSubmit = () => {
 }
 </script>
 <template>
-  <form @submit.prevent="handleSubmit">
-    <div>
-      <label for="imageUrl">Image Link</label>
-      <input id="imageUrl" type="text" v-model="imageUrl"/>
-    </div>
-    <div>
-      <label for="imageTitle">Image Title</label>
-      <input id="imageTitle" type="text" v-model="imageTitle"/>
-    </div>
-    <div>
-      <button type="submit" name="addToGallery">Add to gallery</button>
-    </div>
-  </form>
-</template>
-<style>
+  <div class="addToGallery">
+    <form @submit.prevent="handleSubmit">
+      <div>
+        <label for="imageUrl">Image Link</label>
+        <input id="imageUrl" type="text" v-model="imageUrl"/>
+      </div>
+      <div>
+        <label for="imageTitle">Image Title</label>
+        <input id="imageTitle" type="text" v-model="imageTitle"/>
+      </div>
+      <div>
+        <button type="submit" name="addToGallery">Add to gallery</button>
+      </div>
+    </form>
+  </div>
 
+</template>
+<style scoped>
+  .addToGallery{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>

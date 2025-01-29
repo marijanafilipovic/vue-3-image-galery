@@ -1,12 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import AddToGallery from "./components/AddToGallery.vue";
-const imageUrl = ref("");
-const imageTitle = ref("");
 const images = ref([
   {
-    id: "asd234",
-    url: "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+    id: "asd178",
+    url: "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
     title: "img-title1",
   },
   {
@@ -18,6 +16,11 @@ const images = ref([
     id: "tre456",
     url: "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
     title: "img-title3",
+  },
+  {
+    id: "asd234",
+    url: "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+    title: "img-title4",
   },
 ]);
 const removeImg = (i) => {
@@ -36,7 +39,7 @@ images.value.push(slide);
       <div v-for="(image, index) in images" :key="image.id" class="image">
         <h1>{{ index + 1 }}: {{ image.title }}</h1>
         <img :src="image.url" :alt="image.title" />
-        <button @click="removeImg(index)" class="remove">Remove</button>
+        <button @click="removeImg(index)" class="btn-remove">Remove</button>
       </div>
     </div>
     <div v-else class="no-images"><h2>No Images</h2></div>
@@ -67,7 +70,7 @@ images.value.push(slide);
 img {
   width: 100%;
 }
-.remove {
+.btn-remove {
   margin-top: 10px;
   padding: 10px 15px;
   background-color: rgb(250, 110, 110);
@@ -77,7 +80,7 @@ img {
   cursor: pointer;
   font-weight: bold;
 }
-.remove:hover {
+.btn-remove:hover {
   background: rgb(182, 7, 42);
   color: white;
 }
